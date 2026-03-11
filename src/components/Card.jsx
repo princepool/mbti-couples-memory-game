@@ -17,28 +17,28 @@
   "ISFP 🙂": "🌸",
   "ESTP 😎": "🎯",
   "ESFP 🤪": "🎉"
-}
+};
 
 export const Card = ({ card, onClick }) => {
   const type = card.value.split(" ")[0];
   const originalEmoji = card.value.split(" ")[1];
 
-  let displayEmoji;
-  if (card.isMatched) {
-    displayEmoji = matchedEmojis[card.value];  // new "in love" emoji
-  } else if (card.isFlipped) {
-    displayEmoji = originalEmoji;              // original emoji when flipped
-  } else {
-    displayEmoji = "?";                        // hidden
-  }
+  // Logic: Keep the emoji on the back-side consistent so it doesn't 
+  // glitch into a "?" mid-animation.
+  const displayEmoji = card.isMatched ? matchedEmojis[card.value] : originalEmoji;
 
   return (
     <div 
       className={`card ${card.isFlipped ? "flipped" : ""} ${card.isMatched ? "matched" : ""}`} 
       onClick={() => onClick(card)}
     >
+      {/* FRONT SIDE: The cover of the card */}
       <div className="card-front">?</div>
-      <div className="card-back">{type} {displayEmoji}</div>
+
+      {/* BACK SIDE: The actual content */}
+      <div className="card-back">
+        {type} {displayEmoji}
+      </div>
     </div>
   );
 };
