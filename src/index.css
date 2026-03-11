@@ -193,9 +193,13 @@ body {
   .cards-grid {
     gap: 10px;
   }
-  .card-front,
   .card-back {
-    font-size: 2.5rem;
+    font-size: 1.2rem !important; /* Adjust this number to make it even smaller if needed */
+  }
+
+  /* If the "?" on the front is also too big, adjust it here */
+  .card-front {
+    font-size: 1.8rem;
   }
   .stats {
     gap: 20px;
@@ -212,4 +216,11 @@ body {
   .game-header h1 {
     font-size: 1.5rem;
   }
+
+  .card-back {
+    font-size: 1rem !important;
+    padding: 5px;
+    text-align: center;
+  }
 }
+
