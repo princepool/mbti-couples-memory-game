@@ -171,7 +171,7 @@ body {
 .card-back {
   background: #1e1e1e;
   font-size: 2rem;
-  z-index: 0;
+  z-index: -1;   /* change this */
   border: 2px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -183,6 +183,7 @@ body {
 
 .card.flipped .card-back {
   opacity: 1;
+  z-index: 2;
 }
 
 .card.matched {
